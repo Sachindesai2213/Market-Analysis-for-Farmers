@@ -23,7 +23,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">FLIGHT PRICE</a>
+                <a class="navbar-brand" href="/">MARKET ANALYSIS FOR FARMERS</a>
             </div>
         </div>
     </nav>
@@ -35,27 +35,29 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-control" action="\predict" method="post">
+                        <form action="\predict" method="post">
                             <h5 class="card-title">Date to sell item</h5>
-                            <!-- Departure -->
                             <input type="date" class="form-control" name="date" id="date" required="required">
+                            <br/>
                             <h5 class="card-title">Select Item</h5>
-                            <!-- Arrival -->
                             <select name="item_name" id="item_name" class="form-control">
                                 {% for item in items %}
                                     <option value={{item}}>{{ item }}</option>
                                 {% endfor %}
                             </select>
+                            <br/>
                             <input type="submit" value="Submit" class="btn btn-secondary">
         
                         </form>
-                        <h3>{{ prediction_text }}</h3>
+                        {% if item_name %}
+                        <h5 class="alert-primary p-2">Predicted price of {{ item_name }} on date {{ day }}/{{ month }} is <br/><b>Rs. {{ output }}</b></h5>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <p>©2020 Amar Mandal</p>
+        <!-- <p>©2020 Amar Mandal</p> -->
 
 
 

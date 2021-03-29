@@ -33,7 +33,7 @@ items = ['Arive greens', 'Banana cooking R.Banana', 'Basale Greens',
 @app.route("/")
 @cross_origin()
 def home():
-    return "Hello"
+    return render_template("home.html", items=items)
 
 
 
@@ -60,7 +60,7 @@ def predict():
 
         output=round(prediction[0],2)
 
-        return render_template('home.html', prediction_text="Your Flight price is Rs. {}".format(output), items=items)
+        return render_template('home.html', item_name=item_name, day=day, month=month, output=output, items=items)
 
 
     return render_template("home.html", items=items)
