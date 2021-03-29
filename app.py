@@ -33,7 +33,7 @@ items = ['Arive greens', 'Banana cooking R.Banana', 'Basale Greens',
 @app.route("/")
 @cross_origin()
 def home():
-    return render_template("home.html", items=items)
+    return "Hello"
 
 
 
@@ -48,7 +48,7 @@ def predict():
         day = int(pd.to_datetime(date, format="%Y-%m-%d").day)
         month = int(pd.to_datetime(date, format ="%Y-%m-%d").month)
         item_name=request.form['item_name']
-        output_list = [day, month]
+        output_list = [month, day]
         for item in items:
             if item == item_name:
                 output_list.append(1)
@@ -67,6 +67,3 @@ def predict():
 
 
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
