@@ -1,4 +1,4 @@
-#Fuck off
+# Packages Used
 appdirs
 certifi
 click
